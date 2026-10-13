@@ -22,5 +22,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - run: npm i
-      - run: npm run build --if-present
+      - name: Install dependencies
+        working-directory: ./express-jest-example-master-for-download
+        run: npm i
+
+      - name: Run build
+        working-directory: ./express-jest-example-master-for-download
+        run: npm run build --if-present
