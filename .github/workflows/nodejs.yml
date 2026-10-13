@@ -29,3 +29,13 @@ jobs:
       - name: Run build
         working-directory: ./express-jest-example-master-for-download
         run: npm run build --if-present
+
+      - name: Run the tests and generate coverage report
+        working-directory: ./express-jest-example-master-for-download
+        run: npm test --coverage
+
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v4
+        with:
+          name: code-coverage-report
+          path: ./express-jest-example-master-for-download/coverage/
